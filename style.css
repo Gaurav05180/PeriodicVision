@@ -44,23 +44,27 @@ header h1 {
     width: 90%; /* Adjust width for better responsiveness */
     max-width: 1200px; /* Set a max width to limit size */
     margin: 20px auto;
-    overflow-x: hidden; /* Hide horizontal overflow */
+    overflow-x: auto; /* Allow horizontal scrolling */
 }
 
 table {
-    width: 100%;
+    width: 1200px; /* Fixed width to maintain aspect ratio */
     border-collapse: collapse;
     text-align: center;
     font-size: 14px;
     table-layout: fixed; /* Prevents overflow by making columns equal width */
 }
 
+/* Cell Styles */
 td {
     position: relative;
     border: 1px solid #ccc;
-    padding: 5px; /* Reduced padding for smaller size */
+    padding: 5px; /* Reduced padding for better spacing */
     transition: transform 0.3s ease, background-color 0.3s ease;
     border-radius: 5px;
+    overflow: hidden; /* Hide overflow content */
+    height: 60px; /* Fixed height to maintain aspect ratio */
+    width: 60px; /* Fixed width for square shape */
 }
 
 td.empty {
@@ -104,20 +108,19 @@ td:not(.empty):hover {
 
 /* Element Box Content */
 .symbol {
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Adjusted for responsiveness */
     font-weight: bold;
+    margin: 2px 0; /* Added margin to separate the content */
 }
 
 .atomic-number {
-    position: absolute;
-    top: 5px;
-    left: 5px;
     font-size: 0.7rem;
+    margin: 2px 0; /* Added margin to separate content */
 }
 
 .name {
     font-size: 0.7rem;
-    margin-top: 5px;
+    margin: 2px 0; /* Increased margin to provide more space */
 }
 
 /* Info Panel */
@@ -149,8 +152,18 @@ td:not(.empty):hover {
 /* Responsive Design */
 @media (max-width: 768px) {
     td {
-        font-size: 10px; /* Further reduced font size for small screens */
-        padding: 4px; /* Adjust padding */
+        width: 50px; /* Adjusted width for smaller screens */
+        height: 50px; /* Adjusted height for smaller screens */
+        padding: 2px; /* Reduced padding for smaller cells */
+    }
+
+    .atomic-number,
+    .symbol,
+    .name {
+        display: block; /* Make them stack vertically */
+        overflow: hidden; /* Hide overflow content */
+        text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+        max-width: 100%; /* Limit the width to prevent overflow */
     }
 
     header h1 {
