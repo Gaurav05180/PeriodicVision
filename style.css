@@ -42,7 +42,7 @@ header h1 {
 
 /* Periodic Table Structure */
 .periodic-table-container {
-    width: 90%;
+    width: 80%;
     margin: 20px auto;
     overflow-x: auto;
 }
