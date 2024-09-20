@@ -19,7 +19,6 @@ body {
     min-height: 100vh;
 }
 
-
 header h1 {
     margin: 20px 0;
     font-size: 3rem;
@@ -42,9 +41,10 @@ header h1 {
 
 /* Periodic Table Structure */
 .periodic-table-container {
-    width: 80%;
+    width: 90%; /* Adjust width for better responsiveness */
+    max-width: 1200px; /* Set a max width to limit size */
     margin: 20px auto;
-    overflow-x: auto;
+    overflow-x: hidden; /* Hide horizontal overflow */
 }
 
 table {
@@ -52,13 +52,13 @@ table {
     border-collapse: collapse;
     text-align: center;
     font-size: 14px;
-    margin-bottom: 40px; /* Increased bottom margin for the last two rows */
+    table-layout: fixed; /* Prevents overflow by making columns equal width */
 }
 
 td {
     position: relative;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 5px; /* Reduced padding for smaller size */
     transition: transform 0.3s ease, background-color 0.3s ease;
     border-radius: 5px;
 }
@@ -102,12 +102,6 @@ td:not(.empty):hover {
     background-color: #ffb3ff;
 }
 
-/* Row spacing for Lanthanides and Actinides */
-table tr:nth-last-child(2),
-table tr:last-child {
-    margin-top: 30px; /* Increase spacing for the last two rows */
-}
-
 /* Element Box Content */
 .symbol {
     font-size: 1.5rem;
@@ -132,7 +126,8 @@ table tr:last-child {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 90%; /* Make it responsive */
+    max-width: 400px;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -154,23 +149,12 @@ table tr:last-child {
 /* Responsive Design */
 @media (max-width: 768px) {
     td {
-        font-size: 12px;
-        padding: 5px;
+        font-size: 10px; /* Further reduced font size for small screens */
+        padding: 4px; /* Adjust padding */
     }
 
     header h1 {
         font-size: 2.5rem; /* Adjust font size for smaller screens */
-    }
-
-    .periodic-table {
-        display: block;
-        overflow-x: auto;
-    }
-    
-    /* Lanthanides and Actinides spacing for small screens */
-    table tr:nth-last-child(2),
-    table tr:last-child {
-        margin-top: 20px;
     }
 }
 
